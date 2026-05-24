@@ -4,7 +4,7 @@ const portfolioData = {
         name: "DAVE",
         role: "Junior Developer",
         intro: "Building responsive web experiences, clean interfaces, and practical tools with a focus on readable code.",
-        about: "I am an aspiring software engineer learning modern frontend development, version control, deployment workflows, and practical automation.",
+        about: "I am an aspiring software engineer learning modern frontend development, Python fundamentals, design tools, version control, deployment workflows, and practical automation.",
         footer: "2026 DAVE. Built with HTML, CSS, JavaScript, Git, and Vercel."
     },
     skills: [
@@ -13,7 +13,12 @@ const portfolioData = {
         "JavaScript",
         "Git & GitHub",
         "Responsive Design",
-        "Vercel Deploy"
+        "Vercel Deploy",
+        "Python Learning",
+        "Figma",
+        "Canva",
+        "SketchUp",
+        "AutoCAD"
     ],
     projects: [
         {
