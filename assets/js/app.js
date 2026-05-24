@@ -90,13 +90,20 @@ function setupScrollReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("reveal-active");
+                elementWatcher.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.15
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.18
     });
 
-    scrollElements.forEach(element => {
+    scrollElements.forEach((element, index) => {
+        const rotateDirection = index % 2 === 0 ? "-7deg" : "7deg";
+        const delay = element.classList.contains("project-card") ? `${(index % 3) * 90}ms` : "0ms";
+
+        element.style.setProperty("--reveal-rotate-y", rotateDirection);
+        element.style.setProperty("--reveal-delay", delay);
         element.classList.add("reveal-hidden");
         elementWatcher.observe(element);
     });
