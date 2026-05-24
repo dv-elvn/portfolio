@@ -111,13 +111,16 @@ function setupScrollReveal() {
 
 function setupScrollTopButton() {
     const scrollTopButton = document.querySelector("[data-scroll-top]");
+    const footer = document.querySelector("footer");
 
     if (!scrollTopButton) {
         return;
     }
 
     const toggleScrollTopButton = () => {
-        scrollTopButton.classList.toggle("is-visible", window.scrollY > 400);
+        const footerIsVisible = footer && footer.getBoundingClientRect().top < window.innerHeight - 12;
+
+        scrollTopButton.classList.toggle("is-visible", window.scrollY > 400 && !footerIsVisible);
     };
 
     scrollTopButton.addEventListener("click", () => {
@@ -128,6 +131,7 @@ function setupScrollTopButton() {
     });
 
     window.addEventListener("scroll", toggleScrollTopButton);
+    window.addEventListener("resize", toggleScrollTopButton);
     toggleScrollTopButton();
 }
 
