@@ -1,96 +1,125 @@
-/* Reset basic spacing */
+/* Modern Reset & Mobile-First Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-/* Dark professional background */
+/* Cozy Minimalist Palette */
 body {
-    background-color: #0f172a;
-    color: #f8fafc;
+    background-color: #fcfaf7; /* Warm Oatmeal / Cream */
+    color: #4a3b32;           /* Deep Milk Brown for high contrast readability */
     line-height: 1.6;
+    padding: 0;
 }
 
-/* Clean navigation bar */
+/* Responsive Navigation */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 10%;
-    background-color: #1e293b;
-    border-bottom: 1px solid #334155;
+    padding: 1.5rem 5%;
+    background-color: #f4eee5; /* Cream Milk */
+    border-bottom: 1px solid #e6dcce;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #38bdf8; /* Cyber blue */
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #d96a3b; /* Terracotta Orange Accent */
+    letter-spacing: -0.5px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-links a {
-    color: #94a3b8;
+    color: #705a4f; /* Soft Milk Brown */
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-    color: #38bdf8;
+    color: #d96a3b;
 }
 
-/* Impactful Hero Section */
+/* Aesthetic Hero Section (Optimized for Mobile Screens) */
 .hero {
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
-    padding: 0 10%;
-    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent);
+    padding: 2rem 5%;
+    /* Subtle warm gradient decoration */
+    background: radial-gradient(circle at 90% 10%, rgba(217, 106, 59, 0.08), transparent 40%);
+}
+
+.hero-content {
+    max-width: 650px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem; /* Dynamic size for mobile screens */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: #362a22; /* Dark espresso brown */
 }
 
 .highlight {
-    color: #38bdf8;
+    color: #d96a3b; /* Pops out in Terracotta Orange */
 }
 
 .hero h2 {
-    font-size: 1.8rem;
-    color: #94a3b8;
-    margin-bottom: 1.5rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    color: #705a4f;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
 }
 
 .hero p {
-    max-width: 600px;
-    color: #cbd5e1;
+    color: #5c4b40;
     margin-bottom: 2rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
-/* Interactive Button */
+/* Soft Matte Button */
 .btn {
     display: inline-block;
-    background-color: #38bdf8;
-    color: #0f172a;
-    padding: 0.8rem 2rem;
-    border-radius: 6px;
+    background-color: #d96a3b;
+    color: #ffffff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.2s, background-color 0.2s;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(217, 106, 59, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
-    background-color: #0ea5e9;
+    background-color: #c45729;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 106, 59, 0.3);
+}
+
+/* 📱 Media Query: Tweaks look for Larger Laptop Screens */
+@media (min-width: 768px) {
+    nav {
+        padding: 1.5rem 10%;
+    }
+    .hero {
+        padding: 0 10%;
+    }
+    .hero h1 {
+        font-size: 3.8rem; /* Scales up beautifully on desktop monitors */
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+    }
 }
