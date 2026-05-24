@@ -111,23 +111,26 @@ function setupScrollReveal() {
 
 function setupScrollTopButton() {
     const scrollTopButton = document.querySelector("[data-scroll-top]");
-    const footer = document.querySelector("footer");
 
     if (!scrollTopButton) {
         return;
     }
 
     const toggleScrollTopButton = () => {
-        const footerIsVisible = footer && footer.getBoundingClientRect().top < window.innerHeight - 12;
-
-        scrollTopButton.classList.toggle("is-visible", window.scrollY > 24 && !footerIsVisible);
+        scrollTopButton.classList.toggle("is-visible", window.scrollY > 2);
     };
 
     scrollTopButton.addEventListener("click", () => {
+        scrollTopButton.classList.add("is-lifting");
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
+    });
+
+    scrollTopButton.addEventListener("animationend", () => {
+        scrollTopButton.classList.remove("is-lifting");
+        toggleScrollTopButton();
     });
 
     window.addEventListener("scroll", toggleScrollTopButton);

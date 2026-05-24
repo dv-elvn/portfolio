@@ -502,27 +502,89 @@ footer {
     width: 2.75rem;
     height: 2.75rem;
     border: 3px solid var(--line);
-    border-radius: 16px;
-    background-color: var(--pink);
+    border-radius: 50%;
+    background-color: var(--cream);
     color: var(--text);
-    font-size: 1.2rem;
-    font-weight: 700;
     cursor: pointer;
+    display: grid;
+    place-items: center;
     box-shadow: 5px 5px 0 var(--shadow);
     opacity: 0;
     pointer-events: none;
     transform: translateY(12px);
-    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .scroll-top-btn:hover {
-    background-color: var(--sky);
+    background-color: #ffcfdf;
+    transform: translateY(-4px);
+    box-shadow: 7px 9px 0 var(--shadow);
 }
 
 .scroll-top-btn.is-visible {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
+}
+
+.scroll-top-btn.is-visible:hover {
+    transform: translateY(-4px);
+}
+
+.scroll-top-btn.is-lifting {
+    animation: float-up-button 0.7s ease forwards;
+}
+
+.balloon-icon {
+    position: relative;
+    width: 1.2rem;
+    height: 1.42rem;
+    border: 3px solid var(--line);
+    border-radius: 50% 50% 46% 46%;
+    background-color: var(--pink);
+    box-shadow: inset -0.18rem -0.16rem 0 rgba(43, 33, 24, 0.18);
+}
+
+.balloon-icon::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.28rem;
+    width: 0.36rem;
+    height: 0.36rem;
+    border-right: 3px solid var(--line);
+    border-bottom: 3px solid var(--line);
+    background-color: var(--pink);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.balloon-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0.2rem;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-top: 3px solid var(--cream);
+    border-left: 3px solid var(--cream);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+@keyframes float-up-button {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-1.15rem) scale(1.05);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-2rem) scale(0.92);
+    }
 }
 
 .reveal-hidden {
