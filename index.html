@@ -3,37 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elvs | Computer Science Portfolio</title>
+    <title>DV ELVN | Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- 1. Navigation Bar -->
     <nav>
-        <div class="logo">Elvs.dev</div>
+        <div class="logo">dv_elvn.</div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
+    <!-- 2. Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Dave Elvin</span></h1>
-            <h2>Computer Science Student & Web Developer</h2>
-            <p>Building clean, functional, and efficient applications from the ground up.</p>
+            <h1>Hi, I'm <span class="highlight">Elvis</span></h1>
+            <h2>Web Developer & Tech Enthusiast</h2>
+            <p>Building responsive, aesthetic web experiences from a clean Manjaro Linux environment. Welcome to my digital space.</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
     </header>
 
+    <!-- 3. About Section -->
     <section id="about" class="section">
-        <h2>About Me</h2>
-        <div class="underline"></div>
-        <p>I am a Computer Science student focused on software and web development. I love breaking down complex logic, mastering development pipelines, and turning ideas into live internet applications.</p>
+        <h3 class="section-title">About Me</h3>
+        <p class="section-text">
+            I am an aspiring software engineer specializing in clean code layouts, modern interfaces, and automated workflows. When I am not writing HTML and CSS, I am exploring system configurations and tweaking things right from my terminal.
+        </p>
+        <div class="skills-container">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Linux (Manjaro)</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Responsive Design</span>
+        </div>
     </section>
 
-    <footer id="contact">
-        <p>&copy; 2026 Dave Elvin. All Rights Reserved.</p>
+    <!-- 4. Projects Grid Section -->
+    <section id="projects" class="section alt-bg">
+        <h3 class="section-title">Featured Work</h3>
+        <div class="projects-grid">
+            
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <h4>Personal Portfolio Website</h4>
+                <p>This exact website! Built to demonstrate responsive design principles, clean code structure, and lightning-fast deployment pipelines using GitHub and Vercel.</p>
+                <div class="card-tech">HTML • CSS • Git</div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <h4>Terminal Dashboard</h4>
+                <p>A conceptual layout highlighting customized development setups, optimized terminal aliases, and script automations for a smoother Linux workflow.</p>
+                <div class="card-tech">Bash • Linux • Config</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact" class="section">
+        <h3 class="section-title">Let's Connect</h3>
+        <p class="section-text" style="text-align: center; margin-bottom: 2rem;">
+            Have a project in mind or just want to chat about development setups? Drop me a message below!
+        </p>
+        <form class="contact-form" onsubmit="event.preventDefault();">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn form-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- 6. Footer -->
+    <footer>
+        <p>&copy; 2026 dv_elvn. Powered by Manjaro Linux & Vercel.</p>
     </footer>
+
 </body>
 </html>
