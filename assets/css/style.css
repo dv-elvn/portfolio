@@ -225,9 +225,24 @@ nav {
     letter-spacing: 0.5px;
 }
 
+.card-status {
+    display: inline-block;
+    color: #1a1613;
+    background-color: #e4a354;
+    border-radius: 4px;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
 /* ==========================================================================
    CONTACT CARD INTERFACE
    ========================================================================== */
+.contact-intro {
+    margin-bottom: 2rem;
+}
+
 .contact-form {
     max-width: 500px;
     display: flex;
@@ -258,6 +273,12 @@ nav {
     text-align: center;
 }
 
+.form-status {
+    min-height: 1.4rem;
+    color: #e4a354;
+    font-size: 0.85rem;
+}
+
 /* ==========================================================================
    FOOTER FRAME
    ========================================================================== */
@@ -268,6 +289,42 @@ footer {
     padding: 2.5rem;
     font-size: 0.85rem;
     border-top: 1px solid rgba(236, 229, 216, 0.05);
+}
+
+.scroll-top-btn {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(236, 229, 216, 0.2);
+    border-radius: 50%;
+    background-color: #ece5d8;
+    color: #1a1613;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    z-index: 1001;
+}
+
+.scroll-top-btn:hover {
+    background-color: #e4a354;
+    transform: translateY(8px);
+}
+
+.scroll-top-btn.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top-btn.is-visible:hover {
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
