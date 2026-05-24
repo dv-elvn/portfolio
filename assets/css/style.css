@@ -260,6 +260,18 @@ a:hover {
     transform: translateY(-3px);
 }
 
+.project-placeholder {
+    border-style: dashed;
+    background:
+        linear-gradient(135deg, rgba(228, 163, 84, 0.08), rgba(36, 30, 26, 0.78));
+}
+
+.placeholder-text {
+    margin-top: 1rem;
+    color: var(--soft);
+    font-size: 0.92rem;
+}
+
 .project-topline {
     display: flex;
     align-items: center;
@@ -317,6 +329,12 @@ a:hover {
 
 .entry-links a {
     color: var(--gold);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.entry-links span {
+    color: var(--muted);
     font-size: 0.88rem;
     font-weight: 700;
 }
