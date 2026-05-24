@@ -94,31 +94,3 @@ nav {
     background-color: #0ea5e9;
     transform: translateY(-2px);
 }
-
-/* Content Sections */
-.section {
-    padding: 5rem 10%;
-}
-
-.section h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.underline {
-    width: 60px;
-    height: 4px;
-    background-color: #38bdf8;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-}
-
-/* Simple Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #0b0f19;
-    color: #64748b;
-    font-size: 0.9rem;
-    border-top: 1px solid #1e293b;
-}
