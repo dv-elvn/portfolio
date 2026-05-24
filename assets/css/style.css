@@ -28,6 +28,11 @@
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-padding-top: 3.75rem;
+    scroll-snap-type: y mandatory;
+}
+
 body {
     min-width: 320px;
     overflow-x: hidden;
@@ -96,7 +101,12 @@ a:hover {
 
 .section {
     position: relative;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 58px);
     padding: 4.5rem 6%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .section-inner,
@@ -106,9 +116,6 @@ a:hover {
 }
 
 .hero {
-    min-height: auto;
-    display: flex;
-    align-items: center;
     padding-top: 4rem;
     padding-bottom: 4.5rem;
     background:
@@ -484,6 +491,7 @@ footer {
     padding: 2rem 6%;
     text-align: center;
     font-size: 0.85rem;
+    scroll-snap-align: end;
 }
 
 .scroll-top-btn {
@@ -582,6 +590,10 @@ footer {
         scroll-behavior: auto;
     }
 
+    html {
+        scroll-snap-type: none;
+    }
+
     .reveal-hidden,
     .project-card.reveal-hidden {
         opacity: 1;
@@ -592,6 +604,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+    html {
+        scroll-padding-top: 6.5rem;
+    }
+
     .site-nav {
         align-items: flex-start;
         flex-direction: column;

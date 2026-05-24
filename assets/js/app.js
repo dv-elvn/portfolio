@@ -120,7 +120,7 @@ function setupScrollTopButton() {
     const toggleScrollTopButton = () => {
         const footerIsVisible = footer && footer.getBoundingClientRect().top < window.innerHeight - 12;
 
-        scrollTopButton.classList.toggle("is-visible", window.scrollY > 400 && !footerIsVisible);
+        scrollTopButton.classList.toggle("is-visible", window.scrollY > 24 && !footerIsVisible);
     };
 
     scrollTopButton.addEventListener("click", () => {
