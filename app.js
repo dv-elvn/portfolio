@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollElements = document.querySelectorAll('.section, .project-card, .contact-form');
 
     // 2. Setup the Intersection Observer (The Watcher)
-    const elementWatcher = new Intersection Observer((entries) => {
+    const elementWatcher = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             // If the element enters 15% into the screen area
             if (entry.isIntersecting) {

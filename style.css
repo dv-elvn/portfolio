@@ -278,6 +278,17 @@ footer {
     50% { transform: scale(1.2); opacity: 1; color: #fffaf2; }
 }
 
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (min-width: 768px) {
     .section { padding: 6rem 12%; }
     nav { padding: 1.5rem 12%; }
