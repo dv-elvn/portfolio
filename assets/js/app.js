@@ -23,32 +23,41 @@ function setupPageStart() {
 }
 
 function setupIntroScreen() {
-    const introScreen = document.querySelector("[data-intro-screen]");
+    const introFrame = document.querySelector("[data-intro-frame]");
 
-    if (!introScreen) {
+    if (!introFrame) {
         return;
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const introDelay = prefersReducedMotion ? 250 : 2300;
+    const introDelay = prefersReducedMotion ? 500 : 7000;
+    let introRemoved = false;
     const removeIntro = () => {
-        introScreen.remove();
+        if (introRemoved) {
+            return;
+        }
+
+        introRemoved = true;
+        introFrame.classList.add("intro-frame-exit");
+        document.body.classList.remove("intro-active");
+
+        window.setTimeout(() => {
+            introFrame.remove();
+        }, prefersReducedMotion ? 50 : 650);
     };
 
     document.body.classList.add("intro-active");
 
-    window.setTimeout(() => {
-        introScreen.classList.add("intro-screen-exit");
-        document.body.classList.remove("intro-active");
-    }, introDelay);
-
-    introScreen.addEventListener("animationend", event => {
-        if (event.animationName === "intro-splash-out") {
+    const handleIntroMessage = event => {
+        if (event.data === "portfolio-intro-complete") {
             removeIntro();
+            window.removeEventListener("message", handleIntroMessage);
         }
-    });
+    };
 
-    window.setTimeout(removeIntro, introDelay + 1100);
+    window.addEventListener("message", handleIntroMessage);
+
+    window.setTimeout(removeIntro, introDelay);
 }
 
 function renderProfile() {
