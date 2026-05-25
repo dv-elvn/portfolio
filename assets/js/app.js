@@ -30,7 +30,7 @@ function setupIntroScreen() {
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const introDelay = prefersReducedMotion ? 500 : 7000;
+    const introDelay = prefersReducedMotion ? 500 : 7600;
     let introRemoved = false;
     const removeIntro = () => {
         if (introRemoved) {
