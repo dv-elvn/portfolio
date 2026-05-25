@@ -2,7 +2,7 @@
 const portfolioData = {
     profile: {
         name: "DAVE",
-        role: "Junior Developer",
+        role: "Junior Front-End Developer",
         intro: "Building responsive web experiences, clean interfaces, and practical tools with a focus on readable code.",
         about: "I am an aspiring software engineer learning modern frontend development, Python fundamentals, design tools, version control, deployment workflows, and practical automation.",
         footer: "2026 DAVE. Built with HTML, CSS, JavaScript, Git, and Vercel."
