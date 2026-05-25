@@ -1,5 +1,6 @@
 /* eslint-env browser */
 document.addEventListener("DOMContentLoaded", () => {
+    setupPageStart();
     setupIntroScreen();
     renderProfile();
     renderSkills();
@@ -8,6 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
     setupScrollReveal();
     setupScrollTopButton();
 });
+
+function setupPageStart() {
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+
+    if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+
+    window.scrollTo(0, 0);
+}
 
 function setupIntroScreen() {
     const introScreen = document.querySelector("[data-intro-screen]");
