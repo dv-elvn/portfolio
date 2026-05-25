@@ -1,5 +1,6 @@
 /* eslint-env browser */
 document.addEventListener("DOMContentLoaded", () => {
+    setupIntroScreen();
     renderProfile();
     renderSkills();
     renderProjects();
@@ -7,6 +8,35 @@ document.addEventListener("DOMContentLoaded", () => {
     setupScrollReveal();
     setupScrollTopButton();
 });
+
+function setupIntroScreen() {
+    const introScreen = document.querySelector("[data-intro-screen]");
+
+    if (!introScreen) {
+        return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const introDelay = prefersReducedMotion ? 250 : 2300;
+    const removeIntro = () => {
+        introScreen.remove();
+    };
+
+    document.body.classList.add("intro-active");
+
+    window.setTimeout(() => {
+        introScreen.classList.add("intro-screen-exit");
+        document.body.classList.remove("intro-active");
+    }, introDelay);
+
+    introScreen.addEventListener("animationend", event => {
+        if (event.animationName === "intro-splash-out") {
+            removeIntro();
+        }
+    });
+
+    window.setTimeout(removeIntro, introDelay + 1100);
+}
 
 function renderProfile() {
     const { profile } = portfolioData;
