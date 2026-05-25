@@ -80,37 +80,46 @@
             stroke-width: 2.4;
         }
 
-        .ball-shadow {
-            position: absolute;
-            top: calc(50% + 3.4rem);
-            left: 50%;
-            width: clamp(3.8rem, 12vw, 5.2rem);
-            height: 0.7rem;
-            border-radius: 50%;
-            background-color: rgba(2, 6, 23, 0.5);
-            filter: blur(5px);
-            opacity: 0;
-            transform: translateX(-50%) scale(0.42);
-            animation: shadow-bounce 2.25s 0.4s ease-out forwards;
-        }
-
-        .drop-ball {
+        .intro-status {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: clamp(4.6rem, 14vw, 6.6rem);
-            height: clamp(4.6rem, 14vw, 6.6rem);
-            border: 1px solid rgba(255, 255, 255, 0.34);
-            border-radius: 50%;
-            background:
-                radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.95) 0 9%, transparent 10%),
-                radial-gradient(circle at 64% 72%, rgba(2, 6, 23, 0.22), transparent 38%),
-                linear-gradient(145deg, #7dd3fc, #2563eb);
-            box-shadow:
-                0 24px 70px rgba(37, 99, 235, 0.42),
-                inset 0 -16px 24px rgba(15, 23, 42, 0.2);
-            transform: translate(-50%, -54vh) scale(0.9);
-            animation: ball-bounce-out 2.55s 0.4s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
+            width: min(17rem, 58vw);
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            animation: status-in 0.5s 0.85s ease forwards, status-out 0.45s 2.35s ease forwards;
+        }
+
+        .intro-status::before {
+            content: "Initializing workspace";
+            display: block;
+            margin-bottom: 0.85rem;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .status-track {
+            display: block;
+            width: 100%;
+            height: 2px;
+            overflow: hidden;
+            border-radius: 999px;
+            background-color: rgba(148, 163, 184, 0.22);
+        }
+
+        .status-track::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, transparent, var(--accent), #e0f2fe);
+            transform: translateX(-100%);
+            animation: status-fill 1.45s 1s cubic-bezier(0.76, 0, 0.24, 1) forwards;
         }
 
         .welcome-copy {
@@ -118,7 +127,7 @@
             text-align: center;
             opacity: 0;
             transform: translateY(18px);
-            animation: text-in 0.75s 3.15s ease forwards;
+            animation: text-in 0.75s 2.9s ease forwards;
         }
 
         .welcome-copy h1 {
@@ -158,57 +167,22 @@
             }
         }
 
-        @keyframes ball-bounce-out {
-            0% {
+        @keyframes status-in {
+            to {
                 opacity: 1;
-                transform: translate(-50%, -54vh) scale(0.9);
-            }
-
-            38% {
-                transform: translate(-50%, -50%) scale(1.08, 0.92);
-            }
-
-            55% {
-                transform: translate(-50%, -80%) scale(0.96, 1.05);
-            }
-
-            70% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.04, 0.95);
-            }
-
-            88% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.72);
             }
         }
 
-        @keyframes shadow-bounce {
-            0%,
-            24% {
+        @keyframes status-fill {
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes status-out {
+            to {
                 opacity: 0;
-                transform: translateX(-50%) scale(0.42);
-            }
-
-            38%,
-            70% {
-                opacity: 0.75;
-                transform: translateX(-50%) scale(1);
-            }
-
-            55% {
-                opacity: 0.36;
-                transform: translateX(-50%) scale(0.64);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translateX(-50%) scale(0.5);
+                transform: translate(-50%, calc(-50% - 10px));
             }
         }
 
@@ -243,8 +217,7 @@
                 transform: none;
             }
 
-            .drop-ball,
-            .ball-shadow {
+            .intro-status {
                 display: none;
             }
         }
@@ -282,8 +255,9 @@
             </span>
         </div>
 
-        <div class="ball-shadow" aria-hidden="true"></div>
-        <div class="drop-ball" aria-hidden="true"></div>
+        <div class="intro-status" aria-hidden="true">
+            <span class="status-track"></span>
+        </div>
 
         <section class="welcome-copy">
             <h1>Welcome to my Portfolio Website</h1>
@@ -293,7 +267,7 @@
 
     <script>
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const exitDelay = prefersReducedMotion ? 500 : 6600;
+        const exitDelay = prefersReducedMotion ? 500 : 5900;
 
         window.setTimeout(() => {
             document.body.classList.add("intro-exit");
